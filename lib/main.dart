@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:practice_refactoring/l10n/messages.dart';
 import 'package:practice_refactoring/l10n/app_localizations_delegate.dart';
+import 'package:practice_refactoring/components/app_bar_actions.dart';
 
 void main() => runApp(App());
 
@@ -42,6 +43,7 @@ class _RootPageState extends State<RootPage> {
   Widget _buildAppBar(BuildContext context) {
     return AppBar(
       title: Text(Messages.of(context).title),
+      actions: AppBarActions.root(context),
     );
   }
 
@@ -55,13 +57,13 @@ class _RootPageState extends State<RootPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            Messages.of(context).hello_user(_userName),
+            Messages.of(context).helloUser(_userName),
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 24.0,
             ),
           ),
-          Text(Messages.of(context).please_add_any_comments),
+          Text(Messages.of(context).pleaseAddAnyComments),
         ],
       ),
     );
