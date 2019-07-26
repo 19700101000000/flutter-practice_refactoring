@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2019-07-27T02:22:13.409417",
+  "title": "Hello, world",
+  "@title": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "message": "Hello, {name}",
+  "@message": {
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  }
+}
