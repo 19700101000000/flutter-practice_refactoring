@@ -1,16 +1,21 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2019-07-27T02:22:13.409417",
+  "@@last_modified": "2019-07-27T04:58:15.951561",
   "title": "Hello, world",
   "@title": {
     "type": "text",
     "placeholders": {}
   },
-  "message": "Hello, {name}",
-  "@message": {
+  "hello_user": "Hello, {name}",
+  "@hello_user": {
     "type": "text",
     "placeholders": {
       "name": {}
     }
+  },
+  "please_add_any_comments": "Please add any Comments",
+  "@please_add_any_comments": {
+    "type": "text",
+    "placeholders": {}
   }
 }

@@ -15,6 +15,12 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## 課題
-1. バグ：一部のメッセージが日本語に対応していない
-1. 改善：メッセージ内容の変更
+## 練習課題
+1. ★☆☆☆☆：バグ：一部のメッセージが日本語に対応していない１
+   - トップページの、追加ボタン(+)の tooltip メッセージが多言語化されていない
+   - tooltipメッセージとは、ボタンを長押ししたときに表示される操作ヒントメッセージのこと
+   - 各言語の表記は、次の通り
+     - English : Add a comment
+     - 日本語 : コメントを追加
+1. ~~★☆☆☆☆：バグ：一部のメッセージが日本語に対応していない２~~
+1. ~~★☆☆☆☆：改善：メッセージ内容の変更~~

@@ -1,3 +1,5 @@
 {
-  "title": "こんにちは世界"
+  "@@locale": "ja",
+  "hello_user": "{name}さん、こんにちは",
+  "please_add_any_comments": "コメントを追加してください"
 }

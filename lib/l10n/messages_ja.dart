@@ -20,8 +20,11 @@ typedef MessageIfAbsent(String message_str, List args);
 class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'ja';
 
+  static m0(name) => "${name}さん、こんにちは";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "title" : MessageLookupByLibrary.simpleMessage("こんにちは世界")
+    "hello_user" : m0,
+    "please_add_any_comments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください")
   };
 }

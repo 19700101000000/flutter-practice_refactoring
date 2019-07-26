@@ -2,6 +2,7 @@
 //
 // 1. 下記の Messages クラスに、既存のコードに倣いメソッドを追加する
 // 2. 次のコマンドを実行すると、 lib/l10n/intl_messages.arb に新たに数行追加される
+//    エラーが出ていないことを確認すること
 //
 //    flutter pub run intl_translation:extract_to_arb \
 //      --locale=en --output-dir=lib/l10n lib/l10n/messages.dart
@@ -27,7 +28,6 @@ class Messages {
     final String localeName = Intl.canonicalizedLocale(name);
 
     return initializeMessages(localeName).then((_) {
-      print(localeName);
       Intl.defaultLocale = localeName;
       return Messages();
     });
@@ -38,5 +38,6 @@ class Messages {
   }
 
   String get title => Intl.message('Hello, world', name: 'title');
-  String message(String name) => Intl.message('Hello, $name', name: 'message', args: [name]);
+  String hello_user(String name) => Intl.message('Hello, $name', name: 'hello_user', args: [name]);
+  String get please_add_any_comments => Intl.message('Please add any Comments', name: 'please_add_any_comments');
 }

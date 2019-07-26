@@ -36,25 +36,57 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  final _commentList = List<String>();
+  String _userName;
+
+  Widget _buildAppBar(BuildContext context) {
+    return AppBar(
+      title: Text(Messages.of(context).title),
+    );
+  }
+
+  Widget _buildListView(BuildContext context) {
+    return Container();
+  }
+
+  Widget _buildMessage(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            Messages.of(context).hello_user(_userName),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24.0,
+            ),
+          ),
+          Text(Messages.of(context).please_add_any_comments),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return _commentList.length > 0
+      ? _buildListView(context)
+      : _buildMessage(context);
+  }
+
+  Widget _buildActionButton(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: null,
+      tooltip: 'Add a Comment',
+      child: Icon(Icons.add),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Messages.of(context).title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(Messages.of(context).message('foo')),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      appBar: _buildAppBar(context),
+      body: _buildBody(context),
+      floatingActionButton: _buildActionButton(context),
     );
   }
 }
