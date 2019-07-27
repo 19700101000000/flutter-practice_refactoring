@@ -38,7 +38,7 @@ class Messages {
   }
 
   String get title => Intl.message('Hello, world', name: 'title');
-  String helloUser(String name) => Intl.message('Hello, $name', name: 'hello_user', args: [name]);
-  String get pleaseAddAnyComments => Intl.message('Please add any Comments', name: 'please_add_any_comments');
-  String get editYourName => Intl.message('Edit your name',name: 'edit_your_name');
+  String helloUser(String name) => Intl.message('Hello, $name', name: 'helloUser', args: [name]);
+  String get pleaseAddAnyComments => Intl.message('Please add any Comments', name: 'pleaseAddAnyComments');
+  String get editYourName => Intl.message('Edit your name',name: 'editYourName');
 }

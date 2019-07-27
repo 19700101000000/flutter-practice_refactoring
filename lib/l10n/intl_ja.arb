@@ -1,6 +1,6 @@
 {
   "@@locale": "ja",
-  "hello_user": "{name}さん、こんにちは",
-  "please_add_any_comments": "コメントを追加してください",
-  "edit_your_name": "名前を編集"
+  "helloUser": "{name}さん、こんにちは",
+  "pleaseAddAnyComments": "コメントを追加してください",
+  "editYourName": "名前を編集"
 }

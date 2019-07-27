@@ -1,25 +1,25 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2019-07-27T07:11:02.463395",
+  "@@last_modified": "2019-07-27T19:03:11.888376",
   "title": "Hello, world",
   "@title": {
     "type": "text",
     "placeholders": {}
   },
-  "hello_user": "Hello, {name}",
-  "@hello_user": {
+  "helloUser": "Hello, {name}",
+  "@helloUser": {
     "type": "text",
     "placeholders": {
       "name": {}
     }
   },
-  "please_add_any_comments": "Please add any Comments",
-  "@please_add_any_comments": {
+  "pleaseAddAnyComments": "Please add any Comments",
+  "@pleaseAddAnyComments": {
     "type": "text",
     "placeholders": {}
   },
-  "edit_your_name": "Edit your name",
-  "@edit_your_name": {
+  "editYourName": "Edit your name",
+  "@editYourName": {
     "type": "text",
     "placeholders": {}
   }
