@@ -12,13 +12,13 @@ class AppBarActions {
     }
   }
 
-  static List<Widget> root(BuildContext context) {
+  static List<Widget> root(BuildContext context, {void Function(Categories) onSelected}) {
     final items = <Categories>[
       Categories.edit_name,
     ];
     return <Widget>[
       PopupMenuButton<Categories>(
-        onSelected: null,
+        onSelected: onSelected,
         itemBuilder: (BuildContext context) {
           return items.map((Categories category) {
             return PopupMenuItem<Categories>(
