@@ -80,7 +80,7 @@ class _RootPageState extends State<RootPage> {
   Widget _buildActionButton() {
     return FloatingActionButton(
       onPressed: () => _push(Categories.add_comment),
-      tooltip: 'Add a Comment',
+      tooltip: Messages.of(context).addAComment,
       child: Icon(Icons.add),
     );
   }

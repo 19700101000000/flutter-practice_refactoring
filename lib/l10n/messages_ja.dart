@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addAComment" : MessageLookupByLibrary.simpleMessage("コメントを追加"),
     "editYourName" : MessageLookupByLibrary.simpleMessage("名前を編集"),
     "helloUser" : m0,
-    "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください")
+    "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください"),
+    "title" : MessageLookupByLibrary.simpleMessage("こんにちは、世界")
   };
 }

@@ -49,9 +49,35 @@ samples, guidance on mobile development, and a full API reference.
      - `lib/l10n/messages_all.dart`
      - `lib/l10n/messages_en.dart`
      - `lib/l10n/messages_ja.dart`
+   - 最後に、 `lib/l10n/messages.dart` に追加したメソッドを利用するように、 該当箇所を書き換える
+   - `lib/pages/root_page.dart`
+     ```dart
+     class _RootPageState extends State<RootPage> {
+          /* 省略 */
+          Widget _buildActionButton() {
+               return FloatingActionButton(
+                    onPressed: () => _push(Categories.add_comment),
+                    tooltip: Messages.of(context).addAComment, // 書き換え
+                    child: Icon(Icons.add),
+               );
+          }
+          /* 省略 */
+     }
+     ```
 1. ### ★☆☆☆☆：バグ：一部のメッセージが日本語に対応していない２
    - タイトルメッセージが日本語に対応していないため、対応すること
    - 日本語 : こんにちは、世界
+
+   ### 解答
+   - `lib/l10n/messages.dart` に英語の記載はあるため、日本語メッセージの追加忘れによるバグなので…
+   - `lib/l10n/intl_ja.arb`
+     ```javascript
+     {
+          "@@locale": "ja",
+          "title": "こんにちは、世界", // 追加
+          /* 省略 */
+     }
+     ```
 1. ### ★☆☆☆☆：改善：メッセージ内容の変更１
    - アプリを起動したとき、ユーザーの名前が `null` になっているのを改善する
      - English : no-name
