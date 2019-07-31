@@ -87,6 +87,8 @@ class _RootPageState extends State<RootPage> {
 
   @override
   Widget build(BuildContext context) {
+    _userName = Messages.of(context).noName;
+
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(),

@@ -82,6 +82,38 @@ samples, guidance on mobile development, and a full API reference.
    - アプリを起動したとき、ユーザーの名前が `null` になっているのを改善する
      - English : no-name
      - 日本語 : 名無し
+
+   ### 解答
+   - `lib/l10n/messages.dart`
+     ```dart
+     class Messages {
+          /* 省略 */
+          String get noName => Intl.message('no-name', name: 'noName'); // 追加
+     }
+     ```
+   - `lib/l10n/intl_ja.arb`
+     ```javascript
+     {
+          /* 省略 */
+          "addAComment": "コメントを追加", // カンマを忘れずに
+          "noName": "名無し" // 追加
+     }
+     ```
+   - 基本的に、初期化は `initState()` や宣言と同時に代入するが、
+   各国語対応のメッセージ表示は`BuildContext` をりようするため、 `build()` の中で行う  
+   - `lib/pages/root_page.dart`
+     ```dart
+     class _RootPageState extends State<RootPage> {
+          final _commentList = List<String>();
+          String _userName; // 値を代入していない場合、 null になる
+          /* 省略 */
+          @override
+          Widget build(BuildContext context) {
+               _userName = Messages.of(context).noName; // 追加
+               /* 省略 */
+          }
+     }
+     ```
 1. ### ★☆☆☆☆：改善：メッセージ内容の変更２
    - 名前編集画面の入力欄のヒントメッセージが `名前を編集` なのはおかしいので、次のように改善する
      - English : Please input your name

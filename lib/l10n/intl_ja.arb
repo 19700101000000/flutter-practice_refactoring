@@ -4,5 +4,6 @@
   "helloUser": "{name}さん、こんにちは",
   "pleaseAddAnyComments": "コメントを追加してください",
   "editYourName": "名前を編集",
-  "addAComment": "コメントを追加"
+  "addAComment": "コメントを追加",
+  "noName": "名無し"
 }

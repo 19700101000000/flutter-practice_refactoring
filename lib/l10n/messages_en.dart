@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addAComment" : MessageLookupByLibrary.simpleMessage("Add a comment"),
     "editYourName" : MessageLookupByLibrary.simpleMessage("Edit your name"),
     "helloUser" : m0,
+    "noName" : MessageLookupByLibrary.simpleMessage("no-name"),
     "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("Please add any Comments"),
     "title" : MessageLookupByLibrary.simpleMessage("Hello, world")
   };
