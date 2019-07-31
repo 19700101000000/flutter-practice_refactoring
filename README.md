@@ -25,6 +25,30 @@ samples, guidance on mobile development, and a full API reference.
    - 各言語の表記は、次の通り
      - English : Add a comment
      - 日本語 : コメントを追加
+
+   ### 解答
+   - `lib/l10n/messages.dart` 内に、メッセージの多言語対応手順が書いてあるので、それに従う
+   - `lib/l10n/messages.dart`
+     ```dart
+     class Messages {
+          /* 省略 */
+          String get editYourName => Intl.message('Edit your name', name: 'editYourName');
+          String get addAComment => Intl.message('Add a comment', name: 'addAComment'); // 追加
+     }
+     ```
+   - `lib/l10n/intl_ja.arb`
+     ```javascript
+     {
+          /* 省略 */
+          "editYourName": "名前を編集", // ここのカンマを忘れずに！
+          "addAComment": "コメントを追加" // 追加
+     }
+     ```
+   - 直接変更するのは、この2つのファイルのみで、次のファイルはコマンドにより書き換えが行われる
+     - `lib/l10n/intl_messages.arb`
+     - `lib/l10n/messages_all.dart`
+     - `lib/l10n/messages_en.dart`
+     - `lib/l10n/messages_ja.dart`
 1. ### ★☆☆☆☆：バグ：一部のメッセージが日本語に対応していない２
    - タイトルメッセージが日本語に対応していないため、対応すること
    - 日本語 : こんにちは、世界

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "addAComment" : MessageLookupByLibrary.simpleMessage("コメントを追加"),
     "editYourName" : MessageLookupByLibrary.simpleMessage("名前を編集"),
     "helloUser" : m0,
     "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください")

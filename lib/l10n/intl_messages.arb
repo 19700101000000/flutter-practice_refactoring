@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2019-07-27T19:03:11.888376",
+  "@@last_modified": "2019-08-01T01:00:00.017152",
   "title": "Hello, world",
   "@title": {
     "type": "text",
@@ -20,6 +20,11 @@
   },
   "editYourName": "Edit your name",
   "@editYourName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "addAComment": "Add a comment",
+  "@addAComment": {
     "type": "text",
     "placeholders": {}
   }
