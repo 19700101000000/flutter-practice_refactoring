@@ -43,4 +43,5 @@ class Messages {
   String get editYourName => Intl.message('Edit your name', name: 'editYourName');
   String get addAComment => Intl.message('Add a comment', name: 'addAComment');
   String get noName => Intl.message('no-name', name: 'noName');
+  String get pleaseInputYourName => Intl.message('Please input your name', name: 'pleaseInputYourName');
 }

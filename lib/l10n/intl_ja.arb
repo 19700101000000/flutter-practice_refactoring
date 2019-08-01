@@ -5,5 +5,6 @@
   "pleaseAddAnyComments": "コメントを追加してください",
   "editYourName": "名前を編集",
   "addAComment": "コメントを追加",
-  "noName": "名無し"
+  "noName": "名無し",
+  "pleaseInputYourName": "名前を入力してください"
 }

@@ -31,17 +31,17 @@ samples, guidance on mobile development, and a full API reference.
    - `lib/l10n/messages.dart`
      ```dart
      class Messages {
-          /* 省略 */
-          String get editYourName => Intl.message('Edit your name', name: 'editYourName');
-          String get addAComment => Intl.message('Add a comment', name: 'addAComment'); // 追加
+       /* 省略 */
+       String get editYourName => Intl.message('Edit your name', name: 'editYourName');
+       String get addAComment => Intl.message('Add a comment', name: 'addAComment'); // 追加
      }
      ```
    - `lib/l10n/intl_ja.arb`
      ```javascript
      {
-          /* 省略 */
-          "editYourName": "名前を編集", // ここのカンマを忘れずに！
-          "addAComment": "コメントを追加" // 追加
+       /* 省略 */
+       "editYourName": "名前を編集", // ここのカンマを忘れずに！
+       "addAComment": "コメントを追加" // 追加
      }
      ```
    - 直接変更するのは、この2つのファイルのみで、次のファイルはコマンドにより書き換えが行われる
@@ -53,15 +53,15 @@ samples, guidance on mobile development, and a full API reference.
    - `lib/pages/root_page.dart`
      ```dart
      class _RootPageState extends State<RootPage> {
-          /* 省略 */
-          Widget _buildActionButton() {
-               return FloatingActionButton(
-                    onPressed: () => _push(Categories.add_comment),
-                    tooltip: Messages.of(context).addAComment, // 書き換え
-                    child: Icon(Icons.add),
-               );
-          }
-          /* 省略 */
+       /* 省略 */
+       Widget _buildActionButton() {
+         return FloatingActionButton(
+           onPressed: () => _push(Categories.add_comment),
+           tooltip: Messages.of(context).addAComment, // 書き換え
+           child: Icon(Icons.add),
+         );
+       }
+       /* 省略 */
      }
      ```
 1. ### ★☆☆☆☆：バグ：一部のメッセージが日本語に対応していない２
@@ -73,9 +73,9 @@ samples, guidance on mobile development, and a full API reference.
    - `lib/l10n/intl_ja.arb`
      ```javascript
      {
-          "@@locale": "ja",
-          "title": "こんにちは、世界", // 追加
-          /* 省略 */
+       "@@locale": "ja",
+       "title": "こんにちは、世界", // 追加
+       /* 省略 */
      }
      ```
 1. ### ★☆☆☆☆：改善：メッセージ内容の変更１
@@ -87,16 +87,16 @@ samples, guidance on mobile development, and a full API reference.
    - `lib/l10n/messages.dart`
      ```dart
      class Messages {
-          /* 省略 */
-          String get noName => Intl.message('no-name', name: 'noName'); // 追加
+       /* 省略 */
+       String get noName => Intl.message('no-name', name: 'noName'); // 追加
      }
      ```
    - `lib/l10n/intl_ja.arb`
      ```javascript
      {
-          /* 省略 */
-          "addAComment": "コメントを追加", // カンマを忘れずに
-          "noName": "名無し" // 追加
+       /* 省略 */
+       "addAComment": "コメントを追加", // カンマを忘れずに
+       "noName": "名無し" // 追加
      }
      ```
    - 基本的に、初期化は `initState()` や宣言と同時に代入するが、
@@ -104,23 +104,88 @@ samples, guidance on mobile development, and a full API reference.
    - `lib/pages/root_page.dart`
      ```dart
      class _RootPageState extends State<RootPage> {
-          final _commentList = List<String>();
-          String _userName; // 値を代入していない場合、 null になる
-          /* 省略 */
-          @override
-          Widget build(BuildContext context) {
-               _userName = Messages.of(context).noName; // 追加
-               /* 省略 */
-          }
+       final _commentList = List<String>();
+       String _userName; // 値を代入していない場合、 null になる
+       /* 省略 */
+       @override
+       Widget build(BuildContext context) {
+         _userName = Messages.of(context).noName; // 追加
+         /* 省略 */
+       }
      }
      ```
 1. ### ★☆☆☆☆：改善：メッセージ内容の変更２
    - 名前編集画面の入力欄のヒントメッセージが `名前を編集` なのはおかしいので、次のように改善する
      - English : Please input your name
      - 日本語 : 名前を入力してください
+
+   ### 解答
+   - `lib/l10n/messages.dart`
+     ```dart
+     class Messages {
+       /* 省略 */
+       String get pleaseInputYourName => Intl.message('Please input your name', name: 'pleaseInputYourName'); // 追加
+     }
+     ```
+   - `lib/l10n/intl_ja.arb`
+     ```javascript
+     {
+       /* 省略 */
+       "noName": "名無し", // カンマを忘れずに
+       "pleaseInputYourName": "名前を入力してください" // 追加
+     }
+     ```
+   - `lib/pages/edit_name_page.dart`
+     ```dart
+     class _EditNamePageState extends State<EditNamePage> {
+       /* 省略 */
+       @override
+       Widget build(BuildContext context) {
+         return Scaffold(
+           /* 省略 */
+           body: Center(
+             child: TextField(
+               autofocus: true,
+               controller: controller,
+               decoration: InputDecoration(
+                 hintText: Messages.of(context).pleaseInputYourName, // 書き換え
+               ),
+             ),
+           ),
+         );
+       }
+     }
+     ```
 1. ### ★★☆☆☆：改善：余白をもたせる
    - 名前の編集画面の、入力欄が画面いっぱいに広がっているため、画面端との間に余白をもたせる
-1. ### ★★☆☆☆：改善：から文字チェックをする
+
+   ### 解決
+   - 余白を持たせるために、 `Padding` でラップする
+   - `lib/pages/edit_name_page.dart`
+     ```dart
+     class _EditNamePageState extends State<EditNamePage> {
+       /* 省略 */
+       @override
+       Widget build(BuildContext context) {
+         return Scaffold(
+           /* 省略 */
+           body: Center(
+             child: Padding(                       // Padding でラップ
+               padding: const EdgeInsets.all(8.0), //
+               child: TextField(
+                 autofocus: true,
+                 controller: controller,
+                 decoration: InputDecoration(
+                   hintText: Messages.of(context).pleaseInputYourName,
+                 ),
+               ),
+             ),
+           ),
+         );
+       }
+     }
+     ```
+1. ### ★★☆☆☆：改善：から文字チェックをする(
    - 現状、名前がから文字の場合に、名前が０文字表示になってしまっている
    - から文字の場合は、`名無し`さんにする
 1. ### ★★★☆☆：新規：コメント入力画面を作る

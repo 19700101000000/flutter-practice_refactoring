@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2019-08-01T01:40:59.157855",
+  "@@last_modified": "2019-08-01T21:14:42.878382",
   "title": "Hello, world",
   "@title": {
     "type": "text",
@@ -30,6 +30,11 @@
   },
   "noName": "no-name",
   "@noName": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pleaseInputYourName": "Please input your name",
+  "@pleaseInputYourName": {
     "type": "text",
     "placeholders": {}
   }

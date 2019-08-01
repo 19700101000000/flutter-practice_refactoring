@@ -30,11 +30,14 @@ class _EditNamePageState extends State<EditNamePage> {
         ],
       ),
       body: Center(
-        child: TextField(
-          autofocus: true,
-          controller: controller,
-          decoration: InputDecoration(
-            hintText: Messages.of(context).editYourName,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            autofocus: true,
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: Messages.of(context).pleaseInputYourName,
+            ),
           ),
         ),
       ),
