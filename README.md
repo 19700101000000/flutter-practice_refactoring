@@ -59,7 +59,7 @@ samples, guidance on mobile development, and a full API reference.
            onPressed: () => _push(Categories.add_comment),
            tooltip: Messages.of(context).addAComment, // 書き換え
            child: Icon(Icons.add),
-         );
+         ); // FloatingActionButton
        }
        /* 省略 */
      }
@@ -99,8 +99,9 @@ samples, guidance on mobile development, and a full API reference.
        "noName": "名無し" // 追加
      }
      ```
-   - 基本的に、初期化は `initState()` や宣言と同時に代入するが、
+   - 基本的に、初期化は `initState()` や宣言と同時に代入するが、  
    各国語対応のメッセージ表示は`BuildContext` をりようするため、 `build()` の中で行う  
+   このとき、 `null` の場合のみ、という条件を付けるのを忘れないこと
    - `lib/pages/root_page.dart`
      ```dart
      class _RootPageState extends State<RootPage> {
@@ -109,7 +110,8 @@ samples, guidance on mobile development, and a full API reference.
        /* 省略 */
        @override
        Widget build(BuildContext context) {
-         _userName = Messages.of(context).noName; // 追加
+         if (_userName == null)                     // 追加
+           _userName = Messages.of(context).noName; //
          /* 省略 */
        }
      }
@@ -149,10 +151,10 @@ samples, guidance on mobile development, and a full API reference.
                controller: controller,
                decoration: InputDecoration(
                  hintText: Messages.of(context).pleaseInputYourName, // 書き換え
-               ),
-             ),
-           ),
-         );
+               ), // InputDecoration
+             ), // TextField
+           ), // Center
+         ); // Scaffold
        }
      }
      ```
@@ -177,17 +179,32 @@ samples, guidance on mobile development, and a full API reference.
                  controller: controller,
                  decoration: InputDecoration(
                    hintText: Messages.of(context).pleaseInputYourName,
-                 ),
-               ),
-             ),
-           ),
-         );
+                 ), // InputDecoration
+               ), // TextField
+             ), // Padding
+           ), // Center
+         ); // Scaffold
        }
      }
      ```
 1. ### ★★☆☆☆：改善：から文字チェックをする(
    - 現状、名前がから文字の場合に、名前が０文字表示になってしまっている
    - から文字の場合は、`名無し`さんにする
+
+   ### 解答
+   - 名前がから文字のときに `名無し` を代入する
+   - `lib/page/root_page.dart`
+     ```dart
+     class _RootPageState extends State<RootPage> {
+       /* 省略 */
+       @overrid
+       Widget build(BuildContext context) {
+         if (_userName == null || _userName.isEmpty) // から文字のときに、名無しさんにする
+          _userName = Messages.of(context).noName;   // null 判定は、問題３の内容
+         /* 省略 */
+       }
+     }
+     ```
 1. ### ★★★☆☆：新規：コメント入力画面を作る
    - 現状、コメント追加ボタンを押した先の画面が作成されていない
    - 名前編集画面を参考に、同じようなレイアウトのコメント入力画面を作成する
