@@ -210,6 +210,47 @@ samples, guidance on mobile development, and a full API reference.
    - 名前編集画面を参考に、同じようなレイアウトのコメント入力画面を作成する
    - このとき、各メッセージは必ず多言語対応を行うこと
    - コメント一覧の表示は、次の段階で行う
+
+   ### 解説
+   - 名前編集画面の実装を参考にすると良い
+   - `lib/l10n/messages.dart`
+     ```dart
+     class Messages {
+       /* 省略 */
+       String get pleaseInputAComment => Intl.message('Please input a comment', name: 'pleaseInputAComment'); // 追加
+     }
+     ```
+   - `lib/l10n/intl_ja.arb`
+     ```javascript
+     {
+       "pleaseInputYourName": "名前を入力してください", // カンマ忘れずに
+       "pleaseInputAComment": "コメントを入力してください" // 追加
+     }
+     ```
+   - **new** `lib/pages/add_comment_page.dart`
+   - `lib/utils/app_navigators.dart`
+     ```dart
+     class AppNavigators {
+       static Future<dynamic> push(BuildContext context, Categories category, {dynamic arg}) async {
+         return await Navigator.of(context).push(
+           MaterialPageRoute(
+             builder: (BuildContext context) {
+               switch(category) {
+                 case Category.edit_name:
+                   return EditNamePage(arg is String
+                     ? arg
+                     : '');
+                 case Categories.add_comment: // 追加
+                   return AddCommentPage();   //
+                 default: 
+                   return EmptyPage();
+               }
+             }
+           ), // MaterialPageRoute
+         );
+       }
+     }
+     ```
 1. ### ★★★☆☆：新規：入力したコメントを、トップページで表示する
    - 名前の編集処理を参考に入力したコメントを `_commentList`フィールドに追加する
    - コメント一覧フィールドにコメントを追加すると、ユーザー名の表示が消えて、コメント一覧が表示されることを確認する

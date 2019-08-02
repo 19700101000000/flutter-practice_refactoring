@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "helloUser" : m0,
     "noName" : MessageLookupByLibrary.simpleMessage("名無し"),
     "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください"),
+    "pleaseInputAComment" : MessageLookupByLibrary.simpleMessage("コメントを入力してください"),
     "pleaseInputYourName" : MessageLookupByLibrary.simpleMessage("名前を入力してください"),
     "title" : MessageLookupByLibrary.simpleMessage("こんにちは、世界")
   };
