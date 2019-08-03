@@ -254,6 +254,36 @@ samples, guidance on mobile development, and a full API reference.
 1. ### ★★★☆☆：新規：入力したコメントを、トップページで表示する
    - 名前の編集処理を参考に入力したコメントを `_commentList`フィールドに追加する
    - コメント一覧フィールドにコメントを追加すると、ユーザー名の表示が消えて、コメント一覧が表示されることを確認する
+
+   ### 解答
+   - `lib/pages/root_page.dart`
+     ```dart
+     class _RootPageState extends State<RootPage> {
+       /* 省略 */
+       void _push(Categories category) async {
+         /* 省略 */
+         switch (category) {
+           case Categories.edit_name:
+             setState(() {
+               _userName = result is String
+                 ? result
+                 : null;
+             });
+             return;
+           case Categories.add_comment:                   // 追加
+             if (result is String && result.isNOtEmpty) { //
+               setState(() {                              //
+                 _commentList.add(result);                //
+               });                                        //
+             }                                            //
+             return;                                      //
+           default:
+             return;
+         }
+       }
+       /* 省略 */
+     }
+     ```
 1. ### ★★★★☆：改善：コメント一覧の表示をを改善する
    - コメントが非常に読みづらいため、読みやすいように体裁を整える
    - ユーザー名を表示したり、良い感じにする
