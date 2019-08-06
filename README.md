@@ -287,6 +287,23 @@ samples, guidance on mobile development, and a full API reference.
 1. ### ★★★★☆：改善：コメント一覧の表示をを改善する
    - コメントが非常に読みづらいため、読みやすいように体裁を整える
    - ユーザー名を表示したり、良い感じにする
+
+   ### 解答
+   - `lib/pages/root_page.dart`
+     ```dart
+     class _RootPageState extends State<RootPage> {
+       /* 省略 */
+       Widget _buildListView() {
+         return ListView.builder(
+           itemCount: _commentList.length,
+           itemBuilder: (BuildContext context, int position) {
+             return Text(_commentList[position]); // ここを編集する
+           },
+         ); // ListView.builder
+       }
+       /* 省略 */
+     }
+     ```
 1. ### ★★★★★：新規：コメントを削除する
    - 削除したいコメントをタップすると、削除確認画面が表示る
    - 削除確認画面で削除ボタンを押すことで、コメントを削除することができる

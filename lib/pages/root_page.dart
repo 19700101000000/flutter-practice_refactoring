@@ -24,11 +24,11 @@ class _RootPageState extends State<RootPage> {
     if (result == null) return;
     switch (category) {
       case Categories.edit_name:
-        // setState(() {
+        setState(() {
           _userName = result is String
             ? result
             : null;
-        // });
+        });
         return;
       case Categories.add_comment:
         if (result is String && result.isNotEmpty)
@@ -54,7 +54,10 @@ class _RootPageState extends State<RootPage> {
     return ListView.builder(
       itemCount: _commentList.length,
       itemBuilder: (BuildContext context, int position) {
-        return Text(_commentList[position]);
+        return ListTile(
+          title: Text('${position+1}. $_userName'),
+          subtitle: Text(_commentList[position]),
+        );
       },
     );
   }
