@@ -20,13 +20,18 @@ typedef MessageIfAbsent(String message_str, List args);
 class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'ja';
 
-  static m0(name) => "${name}さん、こんにちは";
+  static m0(number) => "No.${number}を削除しますか?";
+
+  static m1(name) => "${name}さん、こんにちは";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "addAComment" : MessageLookupByLibrary.simpleMessage("コメントを追加"),
+    "cancel" : MessageLookupByLibrary.simpleMessage("キャンセル"),
+    "delete" : MessageLookupByLibrary.simpleMessage("削除"),
+    "deleteComment" : m0,
     "editYourName" : MessageLookupByLibrary.simpleMessage("名前を編集"),
-    "helloUser" : m0,
+    "helloUser" : m1,
     "noName" : MessageLookupByLibrary.simpleMessage("名無し"),
     "pleaseAddAnyComments" : MessageLookupByLibrary.simpleMessage("コメントを追加してください"),
     "pleaseInputAComment" : MessageLookupByLibrary.simpleMessage("コメントを入力してください"),

@@ -45,4 +45,7 @@ class Messages {
   String get noName => Intl.message('no-name', name: 'noName');
   String get pleaseInputYourName => Intl.message('Please input your name', name: 'pleaseInputYourName');
   String get pleaseInputAComment => Intl.message('Please input a comment', name: 'pleaseInputAComment');
+  String deleteComment(int number) => Intl.message('Do you want to delete No.$number?', name: 'deleteComment', args: [number]);
+  String get delete => Intl.message('DELETE', name: 'delete');
+  String get cancel => Intl.message('CANCEL', name: 'cancel');
 }

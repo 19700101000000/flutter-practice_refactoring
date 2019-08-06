@@ -57,6 +57,34 @@ class _RootPageState extends State<RootPage> {
         return ListTile(
           title: Text('${position+1}. $_userName'),
           subtitle: Text(_commentList[position]),
+          onTap: () {
+            showDialog<String>(
+              context: context,
+              child: AlertDialog(
+                content: Text(Messages.of(context).deleteComment(position+1)),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text(Messages.of(context).delete),
+                    onPressed: () {
+                      Navigator.pop(context, 'delete');
+                    },
+                  ),
+                  FlatButton(
+                    child: Text(Messages.of(context).cancel),
+                    onPressed: () {
+                      Navigator.pop(context, 'cancel');
+                    },
+                  ),
+                ],
+              ),
+            ).then((String result) {
+              if (result == 'delete') {
+                setState(() {
+                  _commentList.removeAt(position);
+                });
+              }
+            });
+          },
         );
       },
     );

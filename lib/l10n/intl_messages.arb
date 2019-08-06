@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "@@last_modified": "2019-08-03T04:59:25.478579",
+  "@@last_modified": "2019-08-06T17:37:19.985495",
   "title": "Hello, world",
   "@title": {
     "type": "text",
@@ -40,6 +40,23 @@
   },
   "pleaseInputAComment": "Please input a comment",
   "@pleaseInputAComment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deleteComment": "Do you want to delete No.{number}?",
+  "@deleteComment": {
+    "type": "text",
+    "placeholders": {
+      "number": {}
+    }
+  },
+  "delete": "DELETE",
+  "@delete": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "CANCEL",
+  "@cancel": {
     "type": "text",
     "placeholders": {}
   }

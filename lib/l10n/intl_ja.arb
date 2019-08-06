@@ -7,5 +7,8 @@
   "addAComment": "コメントを追加",
   "noName": "名無し",
   "pleaseInputYourName": "名前を入力してください",
-  "pleaseInputAComment": "コメントを入力してください"
+  "pleaseInputAComment": "コメントを入力してください",
+  "deleteComment": "No.{number}を削除しますか?",
+  "delete": "削除",
+  "cancel": "キャンセル"
 }

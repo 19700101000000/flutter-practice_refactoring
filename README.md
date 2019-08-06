@@ -307,3 +307,8 @@ samples, guidance on mobile development, and a full API reference.
 1. ### ★★★★★：新規：コメントを削除する
    - 削除したいコメントをタップすると、削除確認画面が表示る
    - 削除確認画面で削除ボタンを押すことで、コメントを削除することができる
+
+   ### 解答
+   - 編集箇所は、問９と同じ
+   - 今回は、 `AlertDialog` を使った実装を行っている
+   - `lib/root_page.dart` を参照
